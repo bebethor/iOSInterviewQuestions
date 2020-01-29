@@ -39,3 +39,14 @@ print(iPhones)
 
 let canadianPrices: [Float] = myDevices.map({ return $0.price * 1.2 })
 print(canadianPrices)
+
+// REDUCE: Reduciendo o acumulando. ¿Has usado alguna vez el Excel o el Numbers?, reduce es el sumatorio o acumulador de los valores de una columna que todos conocemos. A partir de una operación básica y un valor inicial, reduce el total de elementos de un array a su mínima expresión. Combinar todos los valores de un array en uno.
+// Con el bucle for
+var totalPrice: Float = 0.0
+for price in canadianPrices {
+    totalPrice += price
+}
+print(totalPrice)
+// con la función Reduce
+canadianPrices.reduce(0.0, +)
+print(canadianPrices)
