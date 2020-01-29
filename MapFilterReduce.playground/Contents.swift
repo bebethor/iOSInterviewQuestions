@@ -34,3 +34,5 @@ print(myPhones)
 let iPhones = myDevices.filter({ return $0.type == "iPhone"}) // en este caso $0 corresponde a la variable devie del bucle for anterior
 print(iPhones)
 
+
+//Commit de prueba
