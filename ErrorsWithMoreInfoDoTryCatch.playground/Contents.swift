@@ -25,4 +25,32 @@ struct errorDetails: Error {
 
 Hecho esto, ahora podemos lanzar errores con mayor detalle poniendo este throw en cualquier función o closure de tipo throws como: */
 
-throw errorDetails(code: 100, message: "This eagle is a cow", error: .cantFly)
+throw errorDetails(code: 100, message: "This eagle is a cow", error: .cantRun)
+
+/*: ¿Cómo capturamos el error para acceder a la información? En el catch tendremos que hacer un let capturando el valor que le entra y haciendo un casting hacia el tipo errorDetails que hemos creado (que como está conformado con Error será completamente válido para el catch).
+
+Vamos a ver el throw en una función que de error como esta: */
+
+
+func doyError() throws {
+    throw errorDetails(code: 100, message: "This eagle is a cow", error: .cantFly)
+}
+
+/* Y ahora hacemos el consabido do, try y catch. Aquí la diferencia radica en que, mientras cuando usamos Error en un enum, podemos tener diferentes catch anidados como si fuera un switch, en este caso solo tendremos un único catch que capturará y convertirá al tipo del error personalizado y a partir de ahí con if case o bien con un switch podemos ir evaluando el tipo de error que nos devuelve la enumeración que forma parte del tipo errorDetails. */
+
+do {
+    try doyError()
+} catch let error as errorDetails {
+    if case .cantFly = error.error {
+        print("ERROR: \(error.code), \(error.message), \(error.error)")
+    }
+    if case .cantRun = error.error {
+        print("ERROR: \(error.code), \(error.message), \(error.error)")
+    }
+}
+
+
+
+/* De esta simple forma, podemos conseguir tener unos errores con más contenido, más detallados y que nos permiten saber más información.
+
+Espero que os haya sido práctica este «truco» y nos vemos en el próximo artículo. Y recordad, que si queréis saberlo todo sobre Swift, podéis comprar nuestro curso de Udemy o nuestro libro (los tenéis en el lateral) o contactarnos en Apple Coding Academy donde impartimos formación para empresas y particulares. Un saludo y Good Apple Coding. */
