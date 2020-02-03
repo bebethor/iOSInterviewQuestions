@@ -1,15 +1,7 @@
-//
-//  BaseScreen.swift
-//  Delegates-Protocols
-//
-//  Created by Sean Allen on 5/20/17.
-//  Copyright © 2017 Sean Allen. All rights reserved.
-//
-
 import UIKit
 
-let lightNotificationKey = "co.seanallen.lightSide"
-let darkNotificationKey = "co.seanallen.darkSide"
+let lightNotificationKey = "co.jarcg.lightSide"
+let darkNotificationKey = "co.jarcg.darkSide"
 
 class BaseScreen: UIViewController {
 
@@ -43,6 +35,8 @@ class BaseScreen: UIViewController {
     
     
     @IBAction func chooseButtonTapped(_ sender: UIButton) {
-        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "SelectionScreen") as! SelectionScreen
+        self.present(newViewController, animated: true, completion: nil)
     }
 }
