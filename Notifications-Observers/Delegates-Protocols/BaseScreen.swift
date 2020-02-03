@@ -40,8 +40,10 @@ class BaseScreen: UIViewController {
     
     @objc func updateCharacterImage(notification: NSNotification) {
         let isLight = notification.name == light
-        let image = isLight ? UIImage(named: "luke")! : UIImage(named: "vader")!
-        mainImageView.image = image
+        if let lightImage = UIImage(named: "luke"), let darkImage = UIImage(named: "vader") {
+            let image = isLight ? lightImage : darkImage
+            mainImageView.image = image
+        }
     }
     
     @objc func updateNameLabel(notification: NSNotification) {
