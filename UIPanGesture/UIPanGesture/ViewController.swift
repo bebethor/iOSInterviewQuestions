@@ -10,6 +10,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //fileImageView.isUserInteractionEnabled = true
         addPanGesture(view: fileImageView)
         fileViewOrigin = fileImageView.frame.origin
     }
