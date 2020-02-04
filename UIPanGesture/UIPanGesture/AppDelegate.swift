@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  UIPanGesture
-//
-//  Created by Sean Allen on 5/11/17.
-//  Copyright © 2017 Sean Allen. All rights reserved.
-//
 
 import UIKit
 

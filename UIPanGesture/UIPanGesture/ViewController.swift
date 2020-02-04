@@ -23,7 +23,6 @@ class ViewController: UIViewController {
         // Where the magic happens
         let fileView = sender.view! // fileView is fileImageView and we attach the sender to this view
         let translation = sender.translation(in: view) // translation is a property of PanGestureRecognizer that tracks the location and the velocity of the movement of the pan in the main view.
-        
         switch sender.state {
         case .began, .changed:
             fileView.center = CGPoint(x: fileView.center.x + translation.x, y: fileView.center.y + translation.y)

@@ -96,7 +96,7 @@
 				TargetAttributes = {
 					ED7B153D1EC4F4A90067F2D3 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = H69U55MWXW;
+						DevelopmentTeam = TN8WTCP25G;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -281,10 +281,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = H69U55MWXW;
+				DEVELOPMENT_TEAM = TN8WTCP25G;
 				INFOPLIST_FILE = UIPanGesture/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = co.seanallen.UIPanGesture;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jarcg.UIPanGesture;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -294,10 +294,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = H69U55MWXW;
+				DEVELOPMENT_TEAM = TN8WTCP25G;
 				INFOPLIST_FILE = UIPanGesture/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = co.seanallen.UIPanGesture;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jarcg.UIPanGesture;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
