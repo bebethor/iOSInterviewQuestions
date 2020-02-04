@@ -13,6 +13,7 @@ class ViewController: UIViewController {
         //fileImageView.isUserInteractionEnabled = true
         addPanGesture(view: fileImageView)
         fileViewOrigin = fileImageView.frame.origin
+        view.bringSubviewToFront(fileImageView)
     }
    
     func addPanGesture(view: UIView) {
