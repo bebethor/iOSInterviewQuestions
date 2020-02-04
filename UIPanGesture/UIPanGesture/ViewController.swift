@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     }
    
     func addPanGesture(view: UIView) {
-        let pan = UIGestureRecognizer(target: self, action: #selector(ViewController.handlePan(sender:)))
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(ViewController.handlePan(sender:)))
         view.addGestureRecognizer(pan)
     }
     
