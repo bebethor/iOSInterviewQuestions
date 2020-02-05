@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         view.addGestureRecognizer(pan)
     }
     
+    // Refactor
     @objc func handlePan(sender: UIPanGestureRecognizer) {
         // Where the magic happens
         let fileView = sender.view! // fileView is fileImageView and we attach the sender to this view
@@ -30,7 +31,15 @@ class ViewController: UIViewController {
             fileView.center = CGPoint(x: fileView.center.x + translation.x, y: fileView.center.y + translation.y)
             sender.setTranslation(CGPoint.zero, in: view)
         case .ended:
-            break
+            if fileImageView.frame.intersects(trashImageView.frame) {
+                UIView.animate(withDuration: 0.3) {
+                    self.fileImageView.alpha = 0.0
+                }
+            } else {
+                UIView.animate(withDuration: 0.3) {
+                    self.fileImageView.frame.origin = self.fileViewOrigin
+                }
+            }
         default:
             break
         }
