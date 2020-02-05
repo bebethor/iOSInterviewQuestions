@@ -2,11 +2,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // MARK: - IBOUTLETS
     @IBOutlet weak var fileImageView: UIImageView!
     @IBOutlet weak var trashImageView: UIImageView!
     
     var fileViewOrigin: CGPoint!
     
+    // MARK: - Lyfe Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         //fileImageView.isUserInteractionEnabled = true
@@ -15,6 +17,7 @@ class ViewController: UIViewController {
         view.bringSubviewToFront(fileImageView)
     }
    
+    // MARK: - Functions
     func addPanGesture(view: UIView) {
         let pan = UIPanGestureRecognizer(target: self, action: #selector(ViewController.handlePan(sender:)))
         view.addGestureRecognizer(pan)
@@ -39,6 +42,7 @@ class ViewController: UIViewController {
         }
     }
     
+    // MARK: - Helper Methods
     func moveViewWithPan(view: UIView, sender: UIPanGestureRecognizer) {
         let translation = sender.translation(in: view) // translation is a property of PanGestureRecognizer that tracks the
         view.center = CGPoint(x: view.center.x + translation.x, y: view.center.y + translation.y)
