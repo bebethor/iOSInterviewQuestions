@@ -20,7 +20,6 @@ class ViewController: UIViewController {
         view.addGestureRecognizer(pan)
     }
     
-    // Refactor
     @objc func handlePan(sender: UIPanGestureRecognizer) {
         // Where the magic happens
         let fileView = sender.view! // fileView is fileImageView and we attach the sender to this view
