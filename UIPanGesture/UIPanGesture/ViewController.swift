@@ -1,4 +1,3 @@
-
 import UIKit
 
 class ViewController: UIViewController {
@@ -25,23 +24,35 @@ class ViewController: UIViewController {
     @objc func handlePan(sender: UIPanGestureRecognizer) {
         // Where the magic happens
         let fileView = sender.view! // fileView is fileImageView and we attach the sender to this view
-        let translation = sender.translation(in: view) // translation is a property of PanGestureRecognizer that tracks the location and the velocity of the movement of the pan in the main view.
         switch sender.state {
         case .began, .changed:
-            fileView.center = CGPoint(x: fileView.center.x + translation.x, y: fileView.center.y + translation.y)
-            sender.setTranslation(CGPoint.zero, in: view)
+            moveViewWithPan(view: fileView, sender: sender)
         case .ended:
             if fileImageView.frame.intersects(trashImageView.frame) {
-                UIView.animate(withDuration: 0.3) {
-                    self.fileImageView.alpha = 0.0
-                }
+                returnViewToOrigin()
             } else {
-                UIView.animate(withDuration: 0.3) {
-                    self.fileImageView.frame.origin = self.fileViewOrigin
-                }
+                deleteView()
             }
         default:
             break
+        }
+    }
+    
+    func moveViewWithPan(view: UIView, sender: UIPanGestureRecognizer) {
+        let translation = sender.translation(in: view) // translation is a property of PanGestureRecognizer that tracks the
+        view.center = CGPoint(x: view.center.x + translation.x, y: view.center.y + translation.y)
+        sender.setTranslation(CGPoint.zero, in: view)
+    }
+    
+    func returnViewToOrigin() {
+        UIView.animate(withDuration: 0.3) {
+            self.fileImageView.alpha = 0.0
+        }
+    }
+    
+    func deleteView() {
+        UIView.animate(withDuration: 0.3) {
+            self.fileImageView.frame.origin = self.fileViewOrigin
         }
     }
 }
