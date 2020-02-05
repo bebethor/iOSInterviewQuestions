@@ -1,28 +1,25 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    var sean: Person?
-    var matilda: MacBook?
+    var jose: Person?
+    var myMacBook: Macbook?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createObjects()
+        createObject()
         assignProperties()
-
     }
     
-    func createObjects() {
-        sean = Person(name: "Sean", macbook: nil)
-        matilda = MacBook(name: "Matilda", owner: nil)
+    func createObject() {
+        jose = Person(name: "Jose", macbook: nil)
+        myMacBook = Macbook(name: "My MacBook", owner: nil)
     }
     
     func assignProperties() {
-        sean?.macbook = matilda
-        matilda?.owner = sean
+        jose?.macbook = myMacBook
+        myMacBook?.owner = jose
         
-        sean = nil
-        matilda = nil
+        jose = nil
+        myMacBook = nil
     }
 }
-

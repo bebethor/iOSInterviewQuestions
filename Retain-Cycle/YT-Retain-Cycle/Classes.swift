@@ -1,11 +1,10 @@
 import Foundation
 
 class Person {
+    var name: String
+    var macbook: Macbook?
     
-    let name: String
-    var macbook: MacBook?
-    
-    init(name: String, macbook: MacBook?) {
+    init(name: String, macbook: Macbook?) {
         self.name = name
         self.macbook = macbook
     }
@@ -15,10 +14,8 @@ class Person {
     }
 }
 
-
-class MacBook {
-    
-    let name: String
+class Macbook {
+    var name: String
     weak var owner: Person?
     
     init(name: String, owner: Person?) {
@@ -27,6 +24,6 @@ class MacBook {
     }
     
     deinit {
-        print("Macbook named \(name) is being deinitialized")
+        print("\(name) is being deinitialized")
     }
 }
