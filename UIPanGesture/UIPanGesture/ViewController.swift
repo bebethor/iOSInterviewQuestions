@@ -28,9 +28,11 @@ class ViewController: UIViewController {
             moveViewWithPan(view: fileView, sender: sender)
         case .ended:
             if fileImageView.frame.intersects(trashImageView.frame) {
-                returnViewToOrigin()
+                // if fileView touches trashView disappears
+                deleteView(view: fileView)
             } else {
-                deleteView()
+                // if te pan ends, the fileView goes to origin
+                returnViewToOrigin(view: fileView)
             }
         default:
             break
@@ -43,15 +45,15 @@ class ViewController: UIViewController {
         sender.setTranslation(CGPoint.zero, in: view)
     }
     
-    func returnViewToOrigin() {
+    func returnViewToOrigin(view: UIView) {
         UIView.animate(withDuration: 0.3) {
-            self.fileImageView.alpha = 0.0
+            view.frame.origin = self.fileViewOrigin
         }
     }
     
-    func deleteView() {
+    func deleteView(view: UIView) {
         UIView.animate(withDuration: 0.3) {
-            self.fileImageView.frame.origin = self.fileViewOrigin
+            view.alpha = 0.0
         }
     }
 }
